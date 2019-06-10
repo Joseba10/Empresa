@@ -2,6 +2,8 @@ package com.ipartek.xf345.utilidades;
 
 import java.util.Scanner;
 
+import com.ipartek.xf345.beans.Empleado;
+
 public class ObtencionTeclado {
 
 	public static void main(String[] args) {
@@ -36,5 +38,10 @@ public class ObtencionTeclado {
 		return numero;
 
 	}
+	
+	
+
+	
+	
 
 }
