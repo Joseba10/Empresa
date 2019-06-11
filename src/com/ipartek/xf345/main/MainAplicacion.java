@@ -26,17 +26,17 @@ public class MainAplicacion extends Operaciones {
 		Pedido pedido = new Pedido();
 		int codempleado = 0;
 		int codcliente = 0;
-		int codpedido=0;
+		int codpedido = 0;
 		String nombre;
-		
+
 		Menu menu = new Menu();
 		menu.MenuPrincipal();
 		int input = Integer.parseInt(ObtencionTeclado.recogerStringTeclado("Elija el codigo \n"));
 
 		if (input == 1) {
-			
-			menu.MenuEmpleado();				
-					
+
+			menu.MenuEmpleado();
+
 			int input2 = Integer.parseInt(ObtencionTeclado.recogerStringTeclado("Elija el codigo \n"));
 
 			switch (input2) {

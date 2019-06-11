@@ -23,7 +23,6 @@ public class Empleado extends BaseDeDatos {
 		super();
 	}
 
-	
 	// Getter and Setter
 	public int getCodEmpleado() {
 		return codEmpleado;

@@ -10,23 +10,19 @@ public class BaseDeDatos {
 	String user = "root";
 	String password = "root";
 	// Carga driver
-	Connection conexion=null;
-public BaseDeDatos() {
-		
-	
-	try {
-		Class.forName(driver); 
-		// Hace conexión
-		  conexion = DriverManager.getConnection(url, user, password);
-		
-	} catch (Exception e) {
-	System.out.println("No se a podido conectar con la base de datos");
+	Connection conexion = null;
+
+	public BaseDeDatos() {
+
+		try {
+			Class.forName(driver);
+			// Hace conexión
+			conexion = DriverManager.getConnection(url, user, password);
+
+		} catch (Exception e) {
+			System.out.println("No se a podido conectar con la base de datos");
+		}
+
 	}
-	
-}
 
-	
-
-	
-	
 }

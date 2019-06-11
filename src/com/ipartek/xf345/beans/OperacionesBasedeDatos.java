@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 public class OperacionesBasedeDatos extends Empleado {
 
-	
 	/***** Empleados ******/
 	public void InsertEmpleado(Empleado empleado) throws SQLException {
 
@@ -87,10 +86,11 @@ public class OperacionesBasedeDatos extends Empleado {
 		// Cerrar conexión
 		conexion.close();
 	}
+
 	/***** Cliente ******/
 
 	public void InsertCliente(Cliente cliente) throws SQLException {
-		
+
 		String sentenciaSql = "insert into cliente (codCliente,nombre,codEmpleado) values (?,?,?)";
 		PreparedStatement pStmt = conexion.prepareStatement(sentenciaSql);
 
@@ -107,7 +107,7 @@ public class OperacionesBasedeDatos extends Empleado {
 		conexion.close();
 
 	}
-	
+
 	public void ReadCliente(String nombrecliente) throws SQLException {
 		String sentenciaSql = "Select codcliente,nombre,codEmpleado from cliente where nombre=?";
 		PreparedStatement pStmt = conexion.prepareStatement(sentenciaSql); // Crea una sentencia sql
@@ -116,9 +116,8 @@ public class OperacionesBasedeDatos extends Empleado {
 
 		boolean hayMas = rs.next();
 		int codempleado = 0;
-		int codcliente= 0;
+		int codcliente = 0;
 		String nombre = null;
-		
 
 		while (hayMas) {
 			codcliente = rs.getInt(1);
@@ -134,10 +133,10 @@ public class OperacionesBasedeDatos extends Empleado {
 		// Cerrar conexión
 		conexion.close();
 	}
+
 	public void UpdateCliente(Cliente cliente) throws SQLException {
-		
+
 		String sentenciaSql = "Update cliente set nombre=?,codempleado=? where codcliente=?";
-	
 
 		System.out.println(sentenciaSql);
 		// Crea lanzador sentencias SQL preparadas
@@ -154,9 +153,9 @@ public class OperacionesBasedeDatos extends Empleado {
 		conexion.close();
 
 	}
-	
+
 	public void DeleteCliente(Cliente cliente) throws SQLException {
-		
+
 		String sentenciaSql = "delete from cliente where codcliente=?";
 		System.out.println(sentenciaSql);
 		// Crea lanzador sentencias SQL preparadas
@@ -169,57 +168,54 @@ public class OperacionesBasedeDatos extends Empleado {
 		// Cerrar conexión
 		conexion.close();
 	}
-	/******Pedidos*********/
-	
+
+	/****** Pedidos *********/
+
 	public void InsertPedido(Pedido pedido) throws SQLException {
 		String sentenciaSql = "insert into pedido (codPedido,detalle,codCliente) values (?,?,?)";
 		PreparedStatement pStmt = conexion.prepareStatement(sentenciaSql);
-		
+
 		pStmt.setInt(1, pedido.getcodPedido());
 		pStmt.setString(2, pedido.getDetalle());
 		pStmt.setInt(3, pedido.getCodCliente());
-		
-		
+
 		// Ejecuta
-				pStmt.executeUpdate();
-				// Cerrar lanzador sentencias SQL
-				pStmt.close();
-				// Cerrar conexión
-				conexion.close();
+		pStmt.executeUpdate();
+		// Cerrar lanzador sentencias SQL
+		pStmt.close();
+		// Cerrar conexión
+		conexion.close();
 	}
-	
+
 	public void ReadPedido(String nombrepedido) throws SQLException {
-		
+
 		String sentenciaSql = "Select codPedido,detalle,codCliente from pedido where detalle=?";
-	PreparedStatement pStmt = conexion.prepareStatement(sentenciaSql); // Crea una sentencia sql
-pStmt.setString(1, nombrepedido);
-ResultSet rs = pStmt.executeQuery();
+		PreparedStatement pStmt = conexion.prepareStatement(sentenciaSql); // Crea una sentencia sql
+		pStmt.setString(1, nombrepedido);
+		ResultSet rs = pStmt.executeQuery();
 
+		boolean hayMas = rs.next();
+		int codpedido = 0;
+		int codcliente = 0;
+		String detalle = null;
 
-boolean hayMas = rs.next();
-int codpedido = 0;
-int codcliente= 0;
-String detalle = null;
+		while (hayMas) {
+			codpedido = rs.getInt(1);
+			detalle = rs.getString(2);
+			codcliente = rs.getInt(3);
+			System.out.println("El id es " + codpedido + " Nombre " + detalle + " Codcliente " + codcliente);
+			hayMas = rs.next();
+		}
 
-
-while (hayMas) {
-	codpedido = rs.getInt(1);
-	detalle = rs.getString(2);
-	codcliente = rs.getInt(3);
-	System.out.println("El id es " + codpedido + " Nombre " + detalle + " Codcliente " + codcliente);
-	hayMas = rs.next();
-}
-
-rs.close();
+		rs.close();
 // Cerrar lanzador sentencias SQL
-pStmt.close();
+		pStmt.close();
 // Cerrar conexión
-conexion.close();
+		conexion.close();
 	}
-	
 
 	public void UpdatePedido(Pedido pedido) throws SQLException {
-		
+
 		String sentenciaSql = "update pedido set detalle=? where codcliente=?";
 		System.out.println(sentenciaSql);
 		// Crea lanzador sentencias SQL preparadas
@@ -233,27 +229,20 @@ conexion.close();
 		// Cerrar conexión
 		conexion.close();
 	}
-	
-	public void DeletePedido(int codcliente) throws SQLException {
 
+	public void DeletePedido(int codcliente) throws SQLException {
 
 		String sentenciaSql = "delete from pedido where codcliente=?";
 		System.out.println(sentenciaSql);
 		// Crea lanzador sentencias SQL preparadas
 		PreparedStatement pStmt = conexion.prepareStatement(sentenciaSql);
 		pStmt.setInt(1, codcliente);
-		//Ejecuta
+		// Ejecuta
 		pStmt.executeUpdate();
 		// Cerrar lanzador sentencias SQL
 		pStmt.close();
 		// Cerrar conexión
 		conexion.close();
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }

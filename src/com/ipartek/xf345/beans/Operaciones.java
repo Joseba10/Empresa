@@ -69,22 +69,19 @@ public class Operaciones {
 	}
 
 	/** Operaciones Pedidos **/
-	
-	
+
 	public static Pedido recogerPedido() {
 
-		int codpedido =Integer.parseInt( ObtencionTeclado.recogerStringTeclado("Codigo de pedido \n"));
+		int codpedido = Integer.parseInt(ObtencionTeclado.recogerStringTeclado("Codigo de pedido \n"));
 
 		String nombre = ObtencionTeclado.recogerStringTeclado("Detalle \n");
 
 		int codcliente = Integer.parseInt(ObtencionTeclado.recogerStringTeclado("Codigo de Cliente \n"));
-	
 
 		Pedido pedido = new Pedido(codpedido, nombre, codcliente);
 		return pedido;
 	}
-	
-	
+
 	public static String consultarNombrePedido() {
 
 		String input = ObtencionTeclado.recogerStringTeclado("Nombre de Cliente \n");
