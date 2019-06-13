@@ -6,8 +6,8 @@ import com.ipartek.xf345.beans.Cliente;
 import com.ipartek.xf345.beans.Empleado;
 import com.ipartek.xf345.beans.Menu;
 import com.ipartek.xf345.beans.Operaciones;
-import com.ipartek.xf345.beans.OperacionesBasedeDatos;
 import com.ipartek.xf345.beans.Pedido;
+import com.ipartek.xf345.dao.BdDaoImpl;
 import com.ipartek.xf345.utilidades.ObtencionTeclado;
 
 public class MainAplicacion extends Operaciones {
@@ -20,7 +20,7 @@ public class MainAplicacion extends Operaciones {
 //		double real = ObtencionTeclado.recogerDoubleTeclado("Dame un real: ");
 //		System.out.println("real: " + real);
 //		
-		OperacionesBasedeDatos operaciones = new OperacionesBasedeDatos();
+		BdDaoImpl operaciones = new BdDaoImpl();
 		Empleado empleado = new Empleado();
 		Cliente cliente = new Cliente();
 		Pedido pedido = new Pedido();

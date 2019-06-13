@@ -1,11 +1,16 @@
-package com.ipartek.xf345.beans;
+package com.ipartek.xf345.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class OperacionesBasedeDatos extends Empleado {
+import com.ipartek.xf345.beans.Cliente;
+import com.ipartek.xf345.beans.Empleado;
+import com.ipartek.xf345.beans.Pedido;
 
+public class BdDaoImpl extends Empleado implements BdDao {
+
+	
 	/***** Empleados ******/
 	public void InsertEmpleado(Empleado empleado) throws SQLException {
 
@@ -243,6 +248,6 @@ public class OperacionesBasedeDatos extends Empleado {
 		pStmt.close();
 		// Cerrar conexión
 		conexion.close();
-	}
+}
 
 }
