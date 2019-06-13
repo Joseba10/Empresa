@@ -9,7 +9,6 @@ import com.ipartek.xf345.beans.Empleado;
 import com.ipartek.xf345.beans.Pedido;
 
 public class BdDaoImpl extends Empleado implements BdDao {
-
 	
 	/***** Empleados ******/
 	public void InsertEmpleado(Empleado empleado) throws SQLException {
